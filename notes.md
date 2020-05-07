@@ -3,28 +3,31 @@ Dnd App
 User 
     has_many :characters
     has_many :memberships
-    has_many campeigns, through: membership
-    has_many :sessions, through: campeign
-    has_many :dugeons, :class_name => 'Campeign', :foreign_key => 'dm_id'
-    (name, username, email, password_digest, location)
+    has_many campaign, through: membership
+    has_many :sessions, through: campaign
+    has_many :dugeons, :class_name => 'campaign', :foreign_key => 'dm_id'
+    (name, username, email, password_digest, location, bio)
 
 
 Character
     belongs_to :user
     (user_id, Name, race, level, bio)
+rails g resource character user:belongs_to name race level:integer bio:text
 
-
-Membership (join)
-    belongs_to :user
-    belongs_to :campeign
-    (user_id, campeign_id, status => default accepted)
-
-Campeign
+campaign
     has_many users, through: membership
     has_many :sessions
     belongs_to :dm, :class_name=> 'User'
     (dm_id,name, location, story, difficulty level)
+rails g resource campaign dm:integer name location story difficulty
+
+Membership (join)
+    belongs_to :user
+    belongs_to :campaign
+    (user_id, campaign_id, status => default accepted)
+rails g resource membership user_id:integer campaign_id:integer status:boolean
 
 Session
-    belongs_to :campeign
-    (campeign_id, date/time, address)
+    belongs_to :campaign
+    (campaign_id, date/time, address)
+rails g resource session campaign_id:integer month:integer day:integer year:integer address

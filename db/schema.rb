@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_152320) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "username"
+    t.text "bio"
     t.string "city"
     t.string "state"
     t.string "email", default: "", null: false
