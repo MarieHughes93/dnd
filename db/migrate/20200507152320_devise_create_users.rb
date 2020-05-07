@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.text :bio
       t.string :city
       t.string :state
+      t.string :title, default: "Lurker"
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

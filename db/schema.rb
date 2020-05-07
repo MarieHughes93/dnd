@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_152320) do
+ActiveRecord::Schema.define(version: 2020_05_07_210405) do
+
+  create_table "characters", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "race"
+    t.integer "level"
+    t.text "background"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_characters_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -18,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_152320) do
     t.text "bio"
     t.string "city"
     t.string "state"
+    t.string "title", default: "Lurker"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
