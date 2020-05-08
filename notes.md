@@ -6,7 +6,7 @@ User
     has_many campaign, through: membership
     has_many :sessions, through: campaign
     has_many :dugeons, :class_name => 'campaign', :foreign_key => 'dm_id'
-    (name, username, email, password_digest, location, bio)
+    (name, city, state, bio, username, email, title)
 
 
 Character

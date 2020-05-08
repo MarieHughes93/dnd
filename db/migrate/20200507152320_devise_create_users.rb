@@ -10,6 +10,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :state
       t.string :title, default: "Lurker"
 
+      # omniauth
+      t.integer :uid
+      t.string :provider
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
