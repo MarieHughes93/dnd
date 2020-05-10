@@ -11,8 +11,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :title, default: "Lurker"
 
       # omniauth
-      t.integer :uid, limit: 50, null: false, default: ""
-      t.string :provider, limit: 500, null: false, default: ""
+      t.string :provider, limit: 50, null: false, default: ""
+      t.string :uid, limit: 500, null: false, default: ""
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

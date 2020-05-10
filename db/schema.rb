@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_05_09_011512) do
     t.string "city"
     t.string "state"
     t.string "title", default: "Lurker"
-    t.integer "uid", limit: 50, null: false
-    t.string "provider", limit: 500, default: "", null: false
+    t.string "provider", limit: 50, default: "", null: false
+    t.string "uid", limit: 500, default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
