@@ -1,9 +1,12 @@
 
-<h1>Welcome, <%= current_user.name %></h1>
+<h1>Welcome, <%= @user.name %></h1>
 
 <ul>
     <li> You have # Dugeons</li>
+    <li><%= link_to 'Check out your Dugeons', user_characters_path(@user) %></li>
     <li> You have # characters </li>
+    <li><%= link_to 'Check out your Characters', user_characters_path(@user) %></li>
     <li> You are in # groups</li>
+    <li><%= link_to 'Check out your Groups', user_characters_path(@user) %></li>
     <li> You have # sessions</li>
 </ul>

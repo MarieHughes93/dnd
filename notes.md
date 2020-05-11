@@ -4,7 +4,6 @@ User
     has_many :characters
     has_many :memberships
     has_many campaign, through: membership
-    has_many :sessions, through: campaign
     has_many :dugeons, :class_name => 'campaign', :foreign_key => 'dm_id'
     (name, city, state, bio, username, email, title)
 
@@ -21,13 +20,11 @@ campaign
     (dm_id,name, location, story, difficulty level)
 rails g resource campaign dm:integer name location story difficulty
 
+when made a character must be made as well
+
 Membership (join)
     belongs_to :user
     belongs_to :campaign
     (user_id, campaign_id, status => default accepted)
 rails g resource membership user_id:integer campaign_id:integer status:boolean
 
-Session
-    belongs_to :campaign
-    (campaign_id, date/time, address)
-rails g resource session campaign_id:integer month:integer day:integer year:integer address
