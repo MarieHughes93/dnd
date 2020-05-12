@@ -3,10 +3,10 @@
 
 <ul>
     <li> You have # Dugeons</li>
-    <li><%= link_to 'Check out your Dugeons', user_characters_path(@user) %></li>
+    <li><%= link_to 'Check out your Dugeons', user_characters_path(@user.id) %></li>
     <li> You have # characters </li>
-    <li><%= link_to 'Check out your Characters', user_characters_path(@user) %></li>
+    <li><%= link_to 'Check out your Characters', user_characters_path(@user.id) %></li>
     <li> You are in # groups</li>
-    <li><%= link_to 'Check out your Groups', user_characters_path(@user) %></li>
+    <li><%= link_to 'Check out your Groups', user_characters_path(@user.id) %></li>
     <li> You have # sessions</li>
 </ul>
