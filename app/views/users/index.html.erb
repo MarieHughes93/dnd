@@ -1,5 +1,9 @@
 <% @users = User.all %>
+<ul>
 <% @users.each do |user| %>
-  <%= user.username %><br/>
-  <%= user.email %><br/>
+  <li><strong><%= user.name %></strong><br/>
+  <strong>Title: </strong><%=user.title%><br/>
+  <strong>Location: </strong><%= user.city%>, <%=user.state%></li>
+  <br/>
 <% end %>
+</ul>
