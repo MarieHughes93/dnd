@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_011512) do
+ActiveRecord::Schema.define(version: 2020_05_14_191544) do
+
+  create_table "campaign_members", force: :cascade do |t|
+    t.integer "campaign_id"
+    t.integer "user_id"
+    t.index ["campaign_id"], name: "index_campaign_members_on_campaign_id"
+    t.index ["user_id"], name: "index_campaign_members_on_user_id"
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "story"
+    t.string "lvl"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "characters", force: :cascade do |t|
     t.integer "user_id"
