@@ -1,0 +1,16 @@
+<h1>Campaigns</h1>
+<% if @campaigns %>
+<ul>
+<% @campaigns.each do |camp|%>
+  <strong> Name: </strong><%= camp.name %><br/>
+  <strong> Location: </strong><%= camp.location %><br/>
+  <strong> Story:</strong><%= camp.story %><br/>
+  <strong> Difficulty</strong><%= camp.lvl %></li>
+  <br/>
+  <%end %>
+</ul>
+  <% else %>
+  <p>There are no groups at this time. If you would please click <%= link_to "here to create a campaign.", new_campaign_path %></p>
+
+
+<% end %>

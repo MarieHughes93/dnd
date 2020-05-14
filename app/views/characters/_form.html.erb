@@ -1,0 +1,14 @@
+<%= form_for ([current_user, current_user.characters.build]) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :race %>
+    <%= f.text_field :race %>
+    <br>
+    <%= f.label "Lvl (# format)" %>
+    <%= f.text_field :level %>
+    <br>
+    <%= f.label :background %><br>
+    <%= f.text_area :background ,size: '50x10' %><br>
+    <%= f.submit %>
+<% end %>

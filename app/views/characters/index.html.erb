@@ -1,10 +1,11 @@
 <h1> Your Characters</h1>
 <% if current_user.characters.empty? %>
 <h3> Uh- oh </h3>
-    <p> Looks like you do not have any characters currently. If you would like to create one please <%= link_to 'click here', new_user_character_path %>
+    <p> Looks like you do not have any characters currently. If you would like to create one please <%= link_to 'click here', new_user_character_path %> to create a character.
 
 <% else%>
-<ul> test
+<h3><%= link_to 'Create New', new_user_character_path %></h3>
+<ul> 
 <% current_user.characters.each do |c| %>
   <li><strong><%= c.name %></strong><br/>
   <strong>Race: </strong><%=c.race%><br/>
