@@ -34,8 +34,31 @@ end
   #   super
   # end
 
-  # protected
+  protected
+  
+  def after_sign_up_path_for(user)
+    if user.username.blank? || user.name.blank? || user.bio.blank? || user.city.blank? || user.state.blank?
+      edit_user_registration_path(user)
+    else
+    users_root_path(user)
+    end
+  end
 
+  def after_update_path_for(user)
+    if user.username.blank? || user.name.blank? || user.bio.blank? || user.city.blank? || user.state.blank?
+      edit_user_registration_path(user)
+    else
+    users_root_path(user)
+    end
+  end
+
+  def after_sign_in_path_for(user)
+    if user.username.blank? || user.name.blank? || user.bio.blank? || user.city.blank? || user.state.blank?
+      edit_user_registration_path(user)
+    else
+    users_root_path(user)
+    end
+  end
   # The path used when OmniAuth fails
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
