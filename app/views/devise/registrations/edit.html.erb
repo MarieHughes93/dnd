@@ -1,35 +1,39 @@
+<% if current_user.bio == nil%>
+<h2>Finish Sign up</h2>
+<p> Github did not have all the answers we needed. Please finish filling out the empty fields and click update to finish your account</p>
+<%else%>
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<%end%>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %>(Prefered or Legal):
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.label :name %><i>(Prefered or Legal)</i>:<br/<>
+    <%= f.text_field :name, autofocus: true%>
   </div>
 
   <div class="field">
     <%= f.label :city %>:
-    <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
+    <%= f.text_field :city, autofocus: true%>
   </div>
 
     <div class="field">
-    <%= f.label :state %>(Intials ex: NY, TN, ect.):
-    <%= f.text_field :state, autofocus: true, autocomplete: "state" %>
+    <%= f.label :state %><i>(Intials ex: NY, TN, ect.)</i>:<br/>
+    <%= f.text_field :state, autofocus: true%>
   </div>
 
   <div class="field">
     <%= f.label :email %>:
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true %>
   </div>
   <div class="field">
     <%= f.label :bio %>:<br />
-    <%= f.text_area :bio ,size: '50x10', autofocus: true, autocomplete: "bio" %>
+    <%= f.text_area :bio ,size: '50x10', autofocus: true%>
   </div>
 
   <div class="field">
     <%= f.label :username %>:
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    <%= f.text_field :username, autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -37,11 +41,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <% if current_user.bio == nil%>
+    <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <i>(<%= @minimum_password_length %> characters minimum)</i>:<br/>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+    <%else%>
+      <%= f.label :password %>
+      <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
     <% end %>
   </div>
 
@@ -50,10 +63,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
