@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2020_05_14_191544) do
   create_table "campaigns", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.string "story"
-    t.string "lvl"
+    t.text "story"
+    t.integer "lvl"
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

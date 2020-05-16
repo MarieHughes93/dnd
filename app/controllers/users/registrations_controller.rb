@@ -22,8 +22,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.provider == "gihub"
       params.delete("current_password")
       resource.update_without_password(params)
-    else
-      resource.update_with_password(params)
+    # else
+      # resource.update_with_password(params)
     end
   end
 

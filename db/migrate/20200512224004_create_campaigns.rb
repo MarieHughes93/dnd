@@ -3,8 +3,8 @@ class CreateCampaigns < ActiveRecord::Migration[5.2]
     create_table :campaigns do |t|
       t.string :name
       t.string :location
-      t.string :story
-      t.string :lvl
+      t.text :story
+      t.integer :lvl
       t.integer :owner_id
 
       t.timestamps
