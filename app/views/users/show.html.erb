@@ -1,12 +1,30 @@
+<% if current_user == @user%>
+<h1> Your Profile </h1>
+<%= link_to "Edit", edit_user_registration_path(current_user)%>
+<%else%>
+<h1><%= @user.name %>'s Profile</h1>
 
-<h1>Welcome, <%= @user.name %></h1>
-
+<%end%>
 <ul>
-    <li> You have # Dugeons</li>
-    <li><%= link_to 'Check out your Dugeons', user_characters_path(@user.id) %></li>
-    <li> You have # characters </li>
-    <li><%= link_to 'Check out your Characters', user_characters_path(@user.id) %></li>
-    <li> You are in # groups</li>
-    <li><%= link_to 'Check out your Groups', user_characters_path(@user.id) %></li>
-    <li> You have # sessions</li>
+    <li><strong>Name: </strong> <%= @user.name%></li>
+    <li><strong>Title: </strong> <%= @user.title%>
+    <li><strong>Location: </strong> <%=@user.city%>, <%=@user.state%></li>
+    <li> has <%=@user.campaigns.count%> campaign(s)</li>
+    <% if !@user.campaigns == [] %>
+        <li><%= link_to 'Check out #{@noun} campaigns', campaigns_path(@user.id) %></li>
+    <%end %>
+    <li> has <%=@user.characters.count%> characters(s)</li>
+    <% if !@user.characters == [] %>
+        <li><%= link_to 'Check out #{@noun} Characters', user_characters_path(@user) %></li>
+    <%end %>
+    <li> Is the DM of <%= owned_campaigns.count%> campaign(s)</li>
+    <% if owned_campaigns.count == nil %>
+        <% owned_campaigns.each do |campaign| %>
+            <li><%= link_to 'Check out #{campaign.name}', campaign_path(campaign) %></li>
+            <br>
+        <%end%>
+    <%end %>
 </ul>
+
+<h2>Bio</h2>
+<p><%=@user.bio%></p>

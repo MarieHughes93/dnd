@@ -28,3 +28,13 @@ Membership (join)
     (user_id, campaign_id, status => default accepted)
 rails g resource membership user_id:integer campaign_id:integer status:boolean
 
+Errors Right now:
+Users index shows blank location for users with auto sign in from github
+Campaigns show when there is no campaigns
+USer profile needs numbers
+User show for if you are not the user.
+character form redirect character show
+character show
+campaign show for member and owner
+campaign form
+
