@@ -60,4 +60,4 @@ Campaign Memberships
         - check for list of users with profile link
 Refactor& finishing touches - 
         Add validations
-            - integer on integers, username is uniq, read me file, spec file, seed data
+            - integer on integers, username is uniq, spec file, seed data

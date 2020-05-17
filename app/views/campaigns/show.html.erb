@@ -13,10 +13,10 @@
             <%= link_to 'Disband', campaign_path(@campaign), :confirm=> "Are you sure?", :method=> :delete %>
         <% elsif current_user == @campaign.users%>
         <%# needs testting %>
-            <%= link_to 'Leave Group', campaign_campaign_memberships_path(@campaign, current_user), :confirm=> "Are you sure?" , :method=> :delete %>
+            <%= link_to 'Leave Group', campaign_campaign_memberships_path(@campaign, current_user), :confirm=> "Are you sure?" , method: :delete %>
         <%else%>
             <%# nested form needs to go here for campaign members to join campain. is join table %>
-            <%# <% end %> %>
+            <%# <% end %> 
         <%end%>
         </li>
     </ul>
