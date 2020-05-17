@@ -32,9 +32,9 @@ rails g resource membership user_id:integer campaign_id:integer status:boolean
 Current RunDown
 Users
     edit 
-        - delete method
+        - functional
     Show
-        - funcational
+        - functional
     index
         -functional
 Characters
@@ -55,12 +55,11 @@ Campaigns
     new
         - fuctional
     show
-        -link to membership index
         - links for owner to edit and delete
 Campaign Memberships <--- change to membership >
     index
-        -Unable to autoload constant CampaignMembershipsController
-        - check for list of users with profile link
+        - list of users with their selected monster with profile link and monster link
 Refactor& finishing touches - 
         Add validations
             - integer on integers, username is uniq, spec file, seed data
+

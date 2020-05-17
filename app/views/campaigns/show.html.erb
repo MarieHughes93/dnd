@@ -5,15 +5,14 @@
         <strong> Difficulty</strong><%= @campaign.lvl %><br/>
         <strong> Story:</strong><%= @campaign.story %>
         <br/><strong> Total Members: </strong><%= @campaign.users.count %><br/>
-        <%# currently not working and needs to be put tpgether %>
-        <%# <%= link_to 'Members Index', (@campaign)%> %>
+        <%= link_to 'Members Index', campaign_memberships_path(@campaign)%>
         <% if current_user == @campaign.owner%>
             <%=link_to 'Edit', edit_campaign_path(@campaign)%>
             <%# currently not fuctioning note to come back %>
             <%= link_to 'Disband', campaign_path(@campaign), :confirm=> "Are you sure?", :method=> :delete %>
         <% elsif current_user == @campaign.users%>
         <%# needs testting %>
-            <%# <%= link_to 'Leave Group', (@campaign, current_user), :confirm=> "Are you sure?" , method: :delete %> %>
+            <%# <%= link_to 'Leave Group', (@campaign, current_user), :confirm=> "Are you sure?" , method: :delete %>
         <%else%>
             <%# nested form needs to go here for campaign members to join campain. is join table %>
             <%# <% end %> 
