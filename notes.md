@@ -31,8 +31,10 @@ rails g resource membership user_id:integer campaign_id:integer status:boolean
 
 Current RunDown
 Users
+    edit 
+        - delete method
     Show
-        - fuctional
+        - funcational
     index
         -functional
 Characters
