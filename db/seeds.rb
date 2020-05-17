@@ -18,7 +18,7 @@
     )
 end
 
-CampaignMemberships.create(
+Memberships.create(
     user_id
     character_id
     )
