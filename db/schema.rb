@@ -36,7 +36,9 @@ ActiveRecord::Schema.define(version: 2020_05_17_162103) do
   create_table "memberships", force: :cascade do |t|
     t.integer "user_id"
     t.integer "campaign_id"
+    t.integer "characters_id"
     t.index ["campaign_id"], name: "index_memberships_on_campaign_id"
+    t.index ["characters_id"], name: "index_memberships_on_characters_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
