@@ -1,0 +1,4 @@
+<h1>Members</h1>
+<% @members.each do |m|%>
+<%=Link_to '#{m.name}'s Profile, user_path(m)%>
+<% end %>
