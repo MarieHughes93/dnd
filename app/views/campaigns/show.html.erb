@@ -8,13 +8,11 @@
         <%= link_to 'Members Index', campaign_memberships_path(@campaign)%>
         <% if current_user == @campaign.owner%>
             <%=link_to 'Edit', edit_campaign_path(@campaign)%>
-            <%= link_to 'Disband', campaign_path(@campaign), :confirm=> "Are you sure?", method: :delete %>
-        <% elsif current_user == @campaign.users%>
-        <%# needs testting %>
-            <%# <%= link_to 'Leave Group', (@campaign, current_user), :confirm=> "Are you sure?" , method: :delete %>
-        <%else%>
-            <%# nested form needs to go here for campaign members to join campain. is join table %>
-            <%# <% end %> 
+            <%= link_to 'Disband', campaign_path(@campaign), confirm: "Are you sure?", method: :delete %>
+        <% elsif @campaign.users.include?(current_user)%>
+            <%= link_to "Leave group", campaign_membership_path(@campaign, current_user), confirm: "Are you sure?", method: :delete%>
+        <%elsif%>
+            <%= render partial: '/memberships/form' %>
         <%end%>
         </li>
     </ul>

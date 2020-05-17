@@ -1,2 +1,7 @@
-<h1>Memberships#index</h1>
-<p>Find me in app/views/memberships/index.html.erb</p>
+<h1> <%=@campaign.name %>'s Members </h1>
+<%= render partial: '/memberships/form' %>
+
+<% @memberships.each do |m|%>
+<%= link_to "#{m.user.name}'s Profile", user_path(m.user)%>
+<%# <%= link_to "#{m.user.character.name}'s Profile", user_character_path(m.user, m.user.character) %>
+<%end%>

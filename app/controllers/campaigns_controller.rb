@@ -4,6 +4,7 @@ class CampaignsController < ApplicationController
       end
       def show
         @campaign = Campaign.find_by(id: params[:id])
+        @membership = @campaign.memberships.build
       end
       def new
         @user = User.find_by(id: params[:id])

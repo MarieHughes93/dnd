@@ -10,11 +10,11 @@
 <strong>Location: </strong> <%=@user.city%>, <%=@user.state%><br/>
 <br/>
 Is a member of <%=@user.campaigns.count%> campaign(s)<br/>
-<% if @user.campaigns >= 1 )%>
+<% if @user.campaigns.count >= 1 %>
     <% @user.campaigns.each do |campaign| %>
     <li><%= link_to "'#{campaign.name}'", campaigns_path(@user.id) %></li>
-    <%end %>
-<%end %>
+    <% end %>
+<% end %>
 <br/>
 has <%=@user.characters.count%> characters(s)<br/>
 <% if @user.characters.count >= 1  %>
