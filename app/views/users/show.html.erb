@@ -17,7 +17,6 @@
     <% if !(@user.characters == []) %>
         <li><%= link_to 'Check out Characters', user_characters_path(@user) %></li>
     <%end %>
-    <%# need to still figure out owned wrong as current and visitor %>
     <li> Is the DM of <%= owned_campaigns.count%> campaign(s)</li>
     <% if owned_campaigns.count == nil %>
         

@@ -12,9 +12,8 @@ class CampaignsController < ApplicationController
       def create
         @campaign = Campaign.new(campaign_params)
         @campaign.owner_id = current_user.id
-        @campaign.users << current_user
         @campaign.save
-        redirect_to campaign_path(current_user,@campaign)
+        redirect_to campaign_path(@campaign)
       end
       def edit
         @campaign = Campaign.find_by(id: params[:id])
@@ -22,7 +21,7 @@ class CampaignsController < ApplicationController
       def update
         @campaign = Campaign.find_by(id: params[:id])
         @campaign.update(campaign_params)
-        redirect_to campaign_path(current_user,@campaign)
+        redirect_to campaign_path(@campaign)
       end
 
       def destroy
