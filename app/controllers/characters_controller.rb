@@ -1,13 +1,13 @@
 class CharactersController < ApplicationController
   def index
     @characters = User.find(params[:user_id]).characters
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:user_id])
   end
   def show
     @character = Character.find_by(id: params[:id])
   end
   def new
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:user_id])
     @character = Character.new
   end
   def create

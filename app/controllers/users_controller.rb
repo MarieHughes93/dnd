@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     def show
         @user = User.find_by(id: params[:id])
-        @owned_ca
     end
     def index
         @users = User.all
