@@ -40,6 +40,7 @@ Users
 Characters
     edit
         - creates new character
+        - need option to delete
     index
         -fuctional
     new
@@ -48,7 +49,7 @@ Characters
         - needs delete option added
 Campaigns
     edit
-        -fuctional
+        -delete method
     index
         -Fuctional
     new
@@ -56,7 +57,7 @@ Campaigns
     show
         -link to membership index
         - links for owner to edit and delete
-Campaign Memberships
+Campaign Memberships <--- change to membership >
     index
         -Unable to autoload constant CampaignMembershipsController
         - check for list of users with profile link

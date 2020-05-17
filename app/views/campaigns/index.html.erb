@@ -8,6 +8,7 @@
       <li><strong>Name: </strong><%= camp.name %><br/>
       <strong>Location: </strong><%= camp.location %><br/>
       <strong>Difficulty: </strong><%= camp.lvl %><br/>
+      <strong>Members: </strong><%= camp.users.count%><br/>
       <%= link_to "View", campaign_path(camp)%></li>
       <br/>
     <%end %>
