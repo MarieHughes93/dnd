@@ -1,20 +1,24 @@
-<h1><%=@character.user.name%>'s Character: </h1>
+<% if current_user == @character.user%>
+<h1> Your Character </h1>
+<%else%>
+<h1><%=@character.user.username%>'s Character: </h1>
+<% end %>
 <h2><strong><%=@character.name%></strong></h2>
-
 <div>
 <h3>Info</h3>
 <ul>
-        <li><strong>Bio:</strong><%=@character.background%><br>
-        <strong>Race:</strong><%=@character.race%><br>
-        <strong>Level:</strong><%= @character.level%></li>
+        <li><strong>Bio:</strong><%=@character.background%><br/>
+        <strong>Race:</strong><%=@character.race%><br/>
+        <strong>Level:</strong><%= @character.level%><br/>
         <% if current_user == @character.user%>
-            <li><%= link_to 'Edit', edit_user_character_path(current_user, @character) %></li>
+            <%= link_to 'Edit', edit_user_character_path(current_user, @character) %></li>
             <br>
             </ul>
-            <%= link_to "Back to your profile", users_root_path(current_user)%>
+            <%= link_to "Back to your profile", user_path(current_user)%>
         <%else %>
+            </li>
             <br>
             </ul>
-            <%= link_to "#{@character.user}'s Profile", users_root_path(@character.user)%>
+            <%= link_to "#{@character.user}'s Profile", user_path(@character.user)%>
         <%end%>
 </div>

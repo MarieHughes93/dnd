@@ -1,11 +1,11 @@
 <% if current_user == @user%>
 <h1> Your Characters</h1>
 <%else%>
- <h1> <%=@user.name%>'s Characters</h1>
+ <h1> <%=@user.username%>'s Characters</h1>
 <%end%>
-<% if @character == [] %>
+<% if @characters == [] %>
   <h3> Uh- oh </h3>
-    <% if current user == @user %>
+    <% if current_user == @user %>
       <p> Looks like you do not have any characters currently. If you would like to create one please <%= link_to 'click here', new_user_character_path(current_user) %> to create a character.
     <%else%>
       <p> It looks as though this user has no characters at this time. </p>
@@ -15,11 +15,11 @@
     <h3><%= link_to 'Create New', new_user_character_path %></h3>
   <%end%>
   <ul> 
-    <% current_user.characters.each do |c| %>
+    <% @characters.each do |c| %>
       <li><strong><%= c.name %></strong><br/>
       <strong>Level: </strong><%= c.level%><br/>
       <%= link_to 'View', user_character_path(current_user, c.id)%>
-      <%= link_to 'Edit', user_character_path(current_user, c.id)%></li>
+      <%= link_to 'Edit', edit_user_character_path(current_user, c.id)%></li>
       <br/>
     <% end %>
 </ul>

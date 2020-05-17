@@ -1,7 +1,17 @@
-<% form_for @campaign do |f| %>
-<%f.label :name %>
-<%f.text_field :name %>
 
-location
-story
-lvl
+<%= form_for @campaign do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br/>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <br/>
+    <%= f.label :story %><br>
+    <%= f.text_area :story ,size: '50x10' %><br>
+    <em>Please select a difficulty based on a numeric scale of 0-10.<br/> 
+    With 0 being for first time players and 10 being veterans.<br/> 
+    What would you rate the difficulty. </em><br/>
+    <%= f.label :lvl %><br />
+    <%= f.text_field :lvl %><br/>
+    <%= f.submit %>
+<% end %>
