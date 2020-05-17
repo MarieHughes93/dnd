@@ -17,10 +17,11 @@
   <ul> 
     <% @characters.each do |c| %>
       <li><strong><%= c.name %></strong><br/>
-      <strong>Level: </strong><%= c.level%><br/>
+      <strong>Level: </strong><%= c.level %><br/>
       <%= link_to 'View', user_character_path(current_user, c.id)%>
       <% if current_user == @user %>
-      <%= link_to 'Edit', edit_user_character_path(current_user, c.id)%></li>
+      <%= link_to 'Edit', edit_user_character_path(current_user, c.id)%>
+      <%= link_to 'Delete', user_character_path(current_user,c.id), :confirm=> "Are you sure?", method: :delete %></li>
       <%end%>
       <br/>
     <% end %>

@@ -10,13 +10,17 @@
 <strong>Location: </strong> <%=@user.city%>, <%=@user.state%><br/>
 <br/>
 Is a member of <%=@user.campaigns.count%> campaign(s)<br/>
-<% if !(@user.campaigns == [] )%>
-    <li><%= link_to 'Check out Campaigns', campaigns_path(@user.id) %></li><br/>
+<% if @user.campaigns >= 1 )%>
+    <% @user.campaigns.each do |campaign| %>
+    <li><%= link_to "'#{campaign.name}'", campaigns_path(@user.id) %></li>
+    <%end %>
 <%end %>
+<br/>
 has <%=@user.characters.count%> characters(s)<br/>
-<% if !(@user.characters == []) %>
-    <li><%= link_to 'Check out Characters', user_characters_path(@user) %></li><br/>
+<% if @user.characters.count >= 1  %>
+    <li><%= link_to 'Character Index', user_characters_path(@user) %></li>
 <%end %>
+<br/>
 Is the DM of <%= owned_campaigns.count%> campaign(s)<br/>
 <% if owned_campaigns.count >= 1 %>
     <% owned_campaigns.each do |campaign| %>

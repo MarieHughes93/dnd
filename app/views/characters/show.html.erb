@@ -11,14 +11,17 @@
         <strong>Race:</strong><%=@character.race%><br/>
         <strong>Level:</strong><%= @character.level%><br/>
         <% if current_user == @character.user%>
-            <%= link_to 'Edit', edit_user_character_path(current_user, @character) %></li>
+            <%= link_to 'Edit', edit_user_character_path(current_user, @character) %>
+            <%= link_to 'Delete', user_character_path(current_user,@character), :confirm=> "Are you sure?", method: :delete %></li>
             <br>
             </ul>
-            <%= link_to "Back to your profile", user_path(current_user)%>
+            <%= link_to "Your index", user_characters_path(current_user)%>
+            <%= link_to "Your profile", user_path(current_user)%>
         <%else %>
             </li>
             <br>
             </ul>
-            <%= link_to "#{@character.user}'s Profile", user_path(@character.user)%>
+            <%= link_to "#{@character.user.name}'s Characters", user_characters_path(@character.user)%><br/>
+            <%= link_to "#{@character.user.name}'s Profile", user_path(@character.user)%>
         <%end%>
 </div>

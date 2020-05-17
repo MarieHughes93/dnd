@@ -9,7 +9,12 @@
       <strong>Location: </strong><%= camp.location %><br/>
       <strong>Difficulty: </strong><%= camp.lvl %><br/>
       <strong>Members: </strong><%= camp.users.count%><br/>
-      <%= link_to "View", campaign_path(camp)%></li>
+      <%= link_to "View", campaign_path(camp)%>
+      <% if current_user == camp.owner %>
+        <%=link_to 'Edit', edit_campaign_path(camp)%>
+        <%= link_to 'Disband', campaign_path(camp), :confirm=> "Are you sure?", method: :delete %>
+      <% end%>
+      </li>
       <br/>
     <%end %>
   </ul>

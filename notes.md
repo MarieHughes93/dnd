@@ -40,25 +40,24 @@ Users
 Characters
     edit
         - creates new character
-        - need option to delete
     index
         -fuctional
     new
         -functional
     show
-        - needs delete option added
+        - functional
 Campaigns
     edit
-        -delete method
+        -functional
     index
         -Fuctional
     new
         - fuctional
     show
-        - links for owner to edit and delete
-Campaign Memberships <--- change to membership >
+        - fuctional
+Membership
     index
-        - list of users with their selected monster with profile link and monster link
+        - form for character 
 Refactor& finishing touches - 
         Add validations
             - integer on integers, username is uniq, spec file, seed data

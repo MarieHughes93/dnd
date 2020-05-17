@@ -23,6 +23,12 @@ class CharactersController < ApplicationController
     redirect_to user_character_path(@character)
   end
 
+  def destroy
+    @character = Character.find(params[:id])
+    @character.destroy 
+    redirect_to user_characters_path(current_user)
+  end
+
   private
   
   def character_params

@@ -8,7 +8,6 @@
         <%= link_to 'Members Index', campaign_memberships_path(@campaign)%>
         <% if current_user == @campaign.owner%>
             <%=link_to 'Edit', edit_campaign_path(@campaign)%>
-            <%# currently not fuctioning note to come back %>
             <%= link_to 'Disband', campaign_path(@campaign), :confirm=> "Are you sure?", method: :delete %>
         <% elsif current_user == @campaign.users%>
         <%# needs testting %>
