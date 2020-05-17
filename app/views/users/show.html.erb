@@ -9,16 +9,19 @@
     <li><strong>Name: </strong> <%= @user.name%></li>
     <li><strong>Title: </strong> <%= @user.title%>
     <li><strong>Location: </strong> <%=@user.city%>, <%=@user.state%></li>
-    <li> has <%=@user.campaigns.count%> campaign(s)</li>
-    <% if !@user.campaigns == [] %>
-        <li><%= link_to 'Check out #{@noun} campaigns', campaigns_path(@user.id) %></li>
+    <li> Is a member of <%=@user.campaigns.count%> campaign(s)</li>
+    <% if !(@user.campaigns == [] )%>
+        <li><%= link_to 'Check out Campaigns', campaigns_path(@user.id) %></li>
     <%end %>
     <li> has <%=@user.characters.count%> characters(s)</li>
-    <% if !@user.characters == [] %>
-        <li><%= link_to 'Check out #{@noun} Characters', user_characters_path(@user) %></li>
+    <% if !(@user.characters == []) %>
+        <li><%= link_to 'Check out Characters', user_characters_path(@user) %></li>
     <%end %>
+    <%# need to still figure out owned wrong as current and visitor %>
     <li> Is the DM of <%= owned_campaigns.count%> campaign(s)</li>
     <% if owned_campaigns.count == nil %>
+        
+    <%else%>
         <% owned_campaigns.each do |campaign| %>
             <li><%= link_to 'Check out #{campaign.name}', campaign_path(campaign) %></li>
             <br>
