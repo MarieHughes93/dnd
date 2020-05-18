@@ -1,3 +1,5 @@
+<h3>Create a new character to then join this group!</h3>
+
 <%= form_with(model: [@campaign, @membership], local: true) do |f| %>
 
     <%= f.hidden_field :user_id %>
@@ -5,8 +7,18 @@
 
 
     <%= fields_for :character, @membership.character do |c| %>
+        <%= c.label :name %>
         <%= c.text_field :name %>
-    <% end %>
+        <br>
+        <%= c.label :race %>
+        <%= c.text_field :race %>
+        <br>
+        <%= c.label :level %> <i> (In numeric format please)</i><br />
+        <%= c.text_field :level %>
+        <br>
+        <%= c.label :background %><br>
+        <%= c.text_area :background ,size: '50x10' %><br>
+        <%end%>
     <%# <h3>Select a Character from your creations and then join to Join this group!</h3>
         <%=f.collection_select :character_id, Character.all, :id, :name%>
 

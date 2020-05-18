@@ -1,7 +1,7 @@
 class CampaignsController < ApplicationController
-  def dm
-    @campaigns = Campaign.owned(current_user)
- end
+      def dm
+      @campaigns = Campaign.owned(current_user)
+      end
     def index
         @campaigns = Campaign.all 
       end

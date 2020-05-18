@@ -26,7 +26,7 @@ class MembershipsController < ApplicationController
   private
 
   def membership_params
-    params.require(:membership).permit(:user_id, :campaign_id, character_attributes: [:name])
+    params.require(:membership).permit(:user_id, :campaign_id, character_attributes: [:name,:race,:level,:background])
   end
 
   
