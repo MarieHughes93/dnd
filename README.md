@@ -1,7 +1,7 @@
 # README
 # DnDSocial
 
-Are you a dnd player or master? Create an account, create your characters adn joing campains. Create campaign to be a dugeon master. Join in a community of like minded indiviuals.
+Are you a dnd player or master? Create an account, create your characters adn joing campaigns. Create campaign to be a dugeon master. Join in a community of like minded indiviuals.
 
 ## Getting Started
 

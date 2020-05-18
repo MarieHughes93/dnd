@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   before_action :get_user
-  before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_character, only: [:edit, :update, :destroy]
 
   def index
     @characters = @user.characters

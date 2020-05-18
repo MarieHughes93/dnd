@@ -5,9 +5,9 @@ class User < ApplicationRecord
   has_many :characters, dependent: :destroy
 
 
-  has_many :memberships, dependent: :destroy
+  has_many :memberships
   has_many :campaigns, through: :memberships
-  has_many :owned_campaigns, class_name: "Campaign", foreign_key: :owner_id, dependent: :destroy
+  has_many :owned_campaigns, class_name: "Campaign", foreign_key: :owner_id
 
 
    

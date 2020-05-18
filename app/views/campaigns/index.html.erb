@@ -6,6 +6,7 @@
   <ul>
     <% @campaigns.each do |camp|%>
       <li><strong>Name: </strong><%= camp.name %><br/>
+      <strong> Owner: </strong> <%=camp.owner.username%><br/>
       <strong>Location: </strong><%= camp.location %><br/>
       <strong>Difficulty: </strong><%= camp.lvl %><br/>
       <strong>Members: </strong><%= camp.users.count%><br/>

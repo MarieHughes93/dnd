@@ -1,5 +1,5 @@
-<h1>Campaigns in need of members</h1>
-<% if @campaigns.count == nil  %>
+<h1>Campaigns you are the master of</h1>
+<% if @campaigns == []  %>
   <p>You currently have no owned groups at this time. click <%= link_to "here to create a campaign.", new_campaign_path %></p>
 <% else %>
   <ul>
