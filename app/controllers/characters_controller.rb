@@ -33,7 +33,8 @@ class CharactersController < ApplicationController
   private
   
   def character_params
-    params.require(:character).permit(:user_id, :name, :race, :level, :background)
+    params.require(:character).permit(:user_id, :name, :race, :level, :background,
+    user_attributes: [:id, :name, :username, :title])
   end
 
   def set_character

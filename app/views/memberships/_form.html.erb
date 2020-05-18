@@ -1,7 +1,14 @@
-<h3>Select a Character from your creations to join this group!</h3>
-
 <%= form_with(model: [@campaign, @membership], local: true) do |f| %>
-                <%= f.hidden_field :user_id %>
-                <%= f.hidden_field :campaign_id %>
-                <%= f.submit "Join"%>
-            <% end %>
+
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :campaign_id %>
+
+
+    <%= fields_for :character, @membership.character do |c| %>
+        <%= c.text_field :name %>
+    <% end %>
+    <%# <h3>Select a Character from your creations and then join to Join this group!</h3>
+        <%=f.collection_select :character_id, Character.all, :id, :name%>
+
+    <%= f.submit "Join"%>
+<% end %>

@@ -1,7 +1,13 @@
 <h1> <%=@campaign.name %>'s Members </h1>
-<%= render partial: '/memberships/form' %>
-
+<% if @memberships.count == 0%>
+<p> I am so sorry but it seems there are no users in the group at this time.</p>
+<%else%>
+<ul>
 <% @memberships.each do |m|%>
-<%= link_to "#{m.user.name}'s Profile", user_path(m.user)%>
-<%# <%= link_to "#{m.user.character.name}'s Profile", user_character_path(m.user, m.user.character) %>
+<li><%= link_to "#{m.user.name}'s Profile", user_path(m.user)%><br/>
+<%= link_to "Their Character: #{m.character.name}", user_character_path(m.user,m.character)%></li><br/>
 <%end%>
+<%end%>
+<%link_to "Return to #{@campaign.name}'s page", campaign_path(@campaign)%>
+</ul>
+
