@@ -1,6 +1,5 @@
 class MembershipsController < ApplicationController
   before_action :get_campaign
-
   def index
     @memberships = @campaign.memberships
     @campaign = Campaign.find_by(id: params[:campaign_id])
@@ -13,6 +12,7 @@ class MembershipsController < ApplicationController
   def create
     @membership = @campaign.memberships.build(membership_params)
     @membership.user_id = current_user.id
+    @membership.character_attributes=(params[:character])
     @membership.save
     redirect_to campaign_path(@membership.campaign_id)
   end
@@ -26,7 +26,7 @@ class MembershipsController < ApplicationController
   private
 
   def membership_params
-    params.require(:membership).permit(:user_id, :campaign_id)
+    params.require(:membership).permit(:user_id, :campaign_id, character_attributes: [:name])
   end
 
   

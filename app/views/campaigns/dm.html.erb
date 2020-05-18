@@ -1,0 +1,19 @@
+<h1>Campaigns in need of members</h1>
+<% if @campaigns.count == nil  %>
+  <p>You currently have no owned groups at this time. click <%= link_to "here to create a campaign.", new_campaign_path %></p>
+<% else %>
+  <ul>
+    <% @campaigns.each do |camp|%>
+      <li><strong>Name: </strong><%= camp.name %><br/>
+      <strong>Location: </strong><%= camp.location %><br/>
+      <strong>Difficulty: </strong><%= camp.lvl %><br/>
+      <strong>Members: </strong><%= camp.users.count%><br/>
+      <%= link_to "View", campaign_path(camp)%>
+        <%=link_to 'Edit', edit_campaign_path(camp)%>
+        <%= link_to 'Disband', campaign_path(camp), :confirm=> "Are you sure?", method: :delete %>
+      </li>
+      <br/>
+    <%end %>
+    
+  </ul>
+<% end %>

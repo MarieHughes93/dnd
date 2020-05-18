@@ -8,6 +8,6 @@
 <%= link_to "Their Character: #{m.character.name}", user_character_path(m.user,m.character)%></li><br/>
 <%end%>
 <%end%>
-<%link_to "Return to #{@campaign.name}'s page", campaign_path(@campaign)%>
+<%=link_to "Return to #{@campaign.name}'s page", campaign_path(@campaign)%>
 </ul>
 
